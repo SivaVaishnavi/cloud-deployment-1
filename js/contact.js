@@ -37,6 +37,7 @@ jQuery(document).ready(function ($) {
 
         var formData = $(this).serialize();
 
+<<<<<<< HEAD
         // AJAX to EC2 backend
          $.ajax({
             url: 'http://54.164.119.16:3000',
@@ -51,6 +52,23 @@ jQuery(document).ready(function ($) {
             error: function (err) {
                 console.log(err);
                 alert('Server error. Please try again.');
+=======
+        // AJAX submit
+        $.ajax({
+            url: 'contact.php',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            success: function (response) {
+                if (response.trim() === '1') {
+                    window.location.href = 'thankyou.html';
+                } else {
+                    alert('Sorry, unexpected error. Please try again later.');
+                }
+            },
+            error: function () {
+                alert('There was a problem submitting the form. Please try again.');
+>>>>>>> 97f26a7fe2c33fb18ce0dc04405f4c3604f21a04
             }
         });
 
